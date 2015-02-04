@@ -13,7 +13,7 @@ switch($modx->event->name) {
     	$keywords = '';
     	//$modx->lexicon->load('seopro:default');
     	$modx->controller->addLexiconTopic('seopro:default');
-    	if($_REQUEST['id'] && $_REQUEST['a'] == 30){
+    	if($_REQUEST['id'] && ($_REQUEST['a'] == 30 || $_REQUEST['a'] == 'resource/update')){
 			$url = $modx->makeUrl($resource->get('id'), '', '', 'full');
 			$url = str_replace($resource->get('alias'), '<span id=\"seopro-replace-alias\">'.$resource->get('alias').'</span>', $url);
 			$seoKeywords = $modx->getObject('seoKeywords', array('resource' => $resource->get('id')));
